@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Your Profile</h1>
+
+    <form th:action="@{/updateProfile}" method="post">
+        <input type="hidden" name="studentId" th:value="${student.studentId}">
+
+        <div class="mb-3">
+            <p><strong>Username:</strong> <span th:text="${student.userName}"></span></p>
+        </div>
+        <div class="mb-3">
+            <p><strong>First Name:</strong> <span th:text="${student.firstname}"></span></p>
+        </div>
+        <div class="mb-3">
+            <p><strong>Last Name:</strong> <span th:text="${student.lastname}"></span></p>
+        </div>
+
+        <div class="mb-3">
+            <label for="address" class="form-label">Address:</label>
+            <input type="text" id="address" name="address" th:value="${student.address}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City:</label>
+            <input type="text" id="city" name="city" th:value="${student.city}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="postalCode" class="form-label">Postal Code:</label>
+            <input type="text" id="postalCode" name="postalCode" th:value="${student.postalCode}" class="form-control" required>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Update Profile</button>
+        </div>
+    </form>
+
+    <div class="text-center mt-4">
+        <a th:href="@{/programs?studentId={id}(id=${student.studentId})}" class="btn btn-secondary">Back to Programs</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

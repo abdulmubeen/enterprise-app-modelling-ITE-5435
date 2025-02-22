@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Enrollment Confirmation</h1>
+    <div class="alert alert-success text-center" role="alert">
+        <p>Thank you for enrolling in <strong th:text="${programName}"></strong>!</p>
+        <p>Your application has been successfully processed.</p>
+    </div>
+    <div class="text-center">
+        <a th:href="@{/profile?studentId={id}(id=${studentId})}" class="btn btn-primary">Go to Profile</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
