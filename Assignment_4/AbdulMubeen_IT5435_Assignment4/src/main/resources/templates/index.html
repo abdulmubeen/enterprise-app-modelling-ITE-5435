@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Workshop Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Workshop Registration</h1>
+
+        <form th:action="@{/submit}" th:object="${registration}" method="post">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
+                        <div th:if="${#fields.hasErrors('firstName')}" class="text-danger" th:errors="*{firstName}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
+                        <div th:if="${#fields.hasErrors('lastName')}" class="text-danger" th:errors="*{lastName}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companyInstitution">Company/Institution *</label>
+                        <input type="text" class="form-control" id="companyInstitution" th:field="*{companyInstitution}" required>
+                        <div th:if="${#fields.hasErrors('companyInstitution')}" class="text-danger" th:errors="*{companyInstitution}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <textarea class="form-control" id="address" th:field="*{address}" required></textarea>
+                        <div th:if="${#fields.hasErrors('address')}" class="text-danger" th:errors="*{address}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" th:field="*{city}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <select class="form-control" id="state" th:field="*{state}">
+                            <option value="Ontario">Ontario</option>
+                            <option value="Quebec">Quebec</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select class="form-control" id="country" th:field="*{country}">
+                            <option value="Canada">Canada</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                        <div th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number *</label>
+                        <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" required>
+                        <div th:if="${#fields.hasErrors('phoneNumber')}" class="text-danger" th:errors="*{phoneNumber}"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label for="mealPreference">Meal Preference</label>
+                        <select class="form-control" id="mealPreference" th:field="*{mealPreference}">
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                            <option value="Vegan">Vegan</option>
+                        </select>
+                    </div>
+
+                    <h4>Payment Details</h4>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" th:field="*{cash}"> Cash
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" th:field="*{cheque}"> Cheque
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" th:field="*{demandDraft}"> Demand Draft
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chequeDdNo">DD/Cheque No.</label>
+                        <input type="text" class="form-control" id="chequeDdNo" th:field="*{chequeDdNo}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="drawnOnBank">Drawn On (Bank Name)</label>
+                        <input type="text" class="form-control" id="drawnOnBank" th:field="*{drawnOnBank}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="payableAt">Payable at</label>
+                        <input type="text" class="form-control" id="payableAt" th:field="*{payableAt}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary" th:action="@{/workshop-registration/reset}">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
