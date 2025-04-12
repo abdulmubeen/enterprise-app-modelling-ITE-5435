@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Reservation Form</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+  <div class="container">
+    <h1>Reservation Form</h1>
+    <form th:action="@{/reservationForm}" th:object="${reservation}" method="post">
+      <!-- Reservation Details -->
+      <div class="form-group">
+        <label for="details">Reservation Details:</label>
+        <input type="text" id="details" th:field="*{details}" placeholder="Enter details" required/>
+      </div>
+      <div class="form-group">
+        <label for="reservationDate">Reservation Date:</label>
+        <input type="text" id="reservationDate" th:field="*{reservationDate}" placeholder="YYYY-MM-DD" required/>
+      </div>
+
+      <!-- Customer Information -->
+      <h3>Customer Information</h3>
+      <div class="form-group">
+        <label for="customer.name">Name:</label>
+        <input type="text" id="customer.name" th:field="*{customer.name}" placeholder="Customer name" required/>
+      </div>
+      <div class="form-group">
+        <label for="customer.email">Email:</label>
+        <input type="email" id="customer.email" th:field="*{customer.email}" placeholder="Customer email" required/>
+      </div>
+
+      <!-- Payment Information -->
+      <h3>Payment Information</h3>
+      <div class="form-group">
+        <label for="payment.paymentType">Payment Type:</label>
+        <input type="text" id="payment.paymentType" th:field="*{payment.paymentType}" placeholder="e.g., Credit Card" required/>
+      </div>
+      <div class="form-group">
+        <label for="payment.amount">Amount:</label>
+        <input type="number" id="payment.amount" th:field="*{payment.amount}" placeholder="Enter amount" step="0.01" required/>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Submit Reservation</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

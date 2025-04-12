@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Reservation Submitted</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+  <div class="container">
+    <h1>Reservation Submitted Successfully!</h1>
+    
+    <div class="reservation-info">
+      <p><strong>Reservation ID:</strong> <span th:text="${reservation.id}"></span></p>
+      <p><strong>Details:</strong> <span th:text="${reservation.details}"></span></p>
+      <p><strong>Date:</strong> <span th:text="${reservation.reservationDate}"></span></p>
+    </div>
+    
+    <h3>Customer Information</h3>
+    <div class="customer-info">
+      <p><strong>Name:</strong> <span th:text="${reservation.customer.name}"></span></p>
+      <p><strong>Email:</strong> <span th:text="${reservation.customer.email}"></span></p>
+    </div>
+    
+    <h3>Payment Information</h3>
+    <div class="payment-info">
+      <p><strong>Payment Type:</strong> <span th:text="${reservation.payment.paymentType}"></span></p>
+      <p><strong>Amount:</strong> <span th:text="${reservation.payment.amount}"></span></p>
+    </div>
+    
+    <p><a th:href="@{/reservationForm}" class="back-link">Submit Another Reservation</a></p>
+  </div>
+</body>
+</html>
